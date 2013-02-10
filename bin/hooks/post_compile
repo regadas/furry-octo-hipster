@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+
+echo "Hello from POST COMPILE"
+
+psatic $BUILD_DIR
