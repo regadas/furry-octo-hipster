@@ -22,8 +22,6 @@ function indent() {
 }
 
 function build() {
-  source $BIN_DIR/hooks/pre_compile
-
   buildpack=$1
 
   dir=$(mktemp -t buildpackXXXXX)
@@ -60,15 +58,15 @@ function build() {
       $dir/bin/release $BUILD_DIR > $BUILD_DIR/last_pack_release.out
     fi
   fi
-
-  export BUILD_TMP_DIR=$dir
-
-  source $BIN_DIR/hooks/post_compile
 }
+
+source $BIN_DIR/hooks/pre_compile
 
 for buildpack in $(cat $BUILD_DIR/.buildpacks); do
   build $buildpack
 done
+
+source $BIN_DIR/hooks/post_compile
 
 
 echo "Using release configuration from last framework $framework:" | indent
