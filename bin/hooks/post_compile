@@ -2,10 +2,16 @@
 
 echo "Hello from POST COMPILE"
 
-# export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
-# export PYTHONUNBUFFERED=1
-# export LANG=en_US.UTF-8
-# export LIBRARY_PATH=/app/.heroku/vendor/lib
-# export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
+export PATH=:/usr/local/bin:$PATH
+
+unset PYTHONHOME PYTHONPATH
+
+which python
+
+export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
+export PYTHONUNBUFFERED=1
+export LANG=en_US.UTF-8
+export LIBRARY_PATH=/app/.heroku/vendor/lib
+export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
 
 pstatic $BUILD_DIR
