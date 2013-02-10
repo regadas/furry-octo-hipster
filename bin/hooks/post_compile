@@ -3,11 +3,11 @@
 echo "Hello from POST COMPILE"
 
 
-export PYTHONHOME=$BUILD_DIR/.heroku/python
-export PYTHONPATH=$BUILD_DIR
+export PYTHONHOME=$BUILD_TMP_DIR/.heroku/python
+export PYTHONPATH=$BUILD_TMP_DIR
 export PYTHONUNBUFFERED=true
 export LANG=en_US.UTF-8
-export LIBRARY_PATH=$BUILD_DIR/.heroku/vendor/lib
-export LD_LIBRARY_PATH=$BUILD_DIR/.heroku/vendor/lib
+export LIBRARY_PATH=$BUILD_TMP_DIR/.heroku/vendor/lib
+export LD_LIBRARY_PATH=$BUILD_TMP_DIR/.heroku/vendor/lib
 
-python -m presstatic $BUILD_DIR
+python -m presstatic
