@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "DETECT"
+
 if [ -f $1/.buildpacks ]; then
   echo "Multipack"
   exit 0
