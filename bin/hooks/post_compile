@@ -11,4 +11,4 @@ export LANG=${LANG:-en_US.UTF-8}
 export PYTHONHASHSEED=${PYTHONHASHSEED:-random}
 export PYTHONPATH=${PYTHONPATH:-$BUILD_DIR}
 
-pstatic $BUILD_DIR/html
+# python -m presstatic $BUILD_DIR/html
