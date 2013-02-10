@@ -2,4 +2,4 @@
 
 echo "Hello from POST COMPILE"
 
-/app/.heroku/python/bin/psatic $BUILD_DIR
+pstatic $BUILD_DIR
