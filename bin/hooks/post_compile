@@ -2,10 +2,9 @@
 
 echo "Hello from POST COMPILE"
 
-source $BUILD_DIR/.profile.d/python.sh
-
-ls $BUILD_DIR
-
-cat $BUILD_DIR/.profile.d/python.sh
+export PYTHONHASHSEED=random
+export PYTHONHOME=/app/.heroku/python
+export PYTHONPATH=/app/
+export PYTHONUNBUFFERED=true
 
 python -m presstatic $BUILD_DIR
