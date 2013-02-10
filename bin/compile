@@ -9,8 +9,6 @@ indent() {
   sed -u 's/^/       /'
 }
 
-unset GIT_DIR
-
 function build() {
   buildpack=$1
 
@@ -45,7 +43,7 @@ function build() {
         exit 1
       fi
 
-      $dir/bin/release $BUILD_DIR > $CACHE_DIR/last_pack_release.out
+      $dir/bin/release $BUILD_DIR > $BUILD_DIR/last_pack_release.out
     fi
   fi
 }
