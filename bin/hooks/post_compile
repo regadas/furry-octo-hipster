@@ -2,4 +2,4 @@
 
 echo "Hello from POST COMPILE"
 
-psatic $BUILD_DIR
+python -m presstatic $BUILD_DIR
