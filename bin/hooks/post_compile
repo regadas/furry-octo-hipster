@@ -3,7 +3,6 @@
 echo "Hello from POST COMPILE"
 
 
-export PYTHONHASHSEED=random
 export PYTHONHOME=$BUILD_DIR/.heroku/python
 export PYTHONPATH=$BUILD_DIR
 export PYTHONUNBUFFERED=true
