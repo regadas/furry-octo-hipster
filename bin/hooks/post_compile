@@ -10,7 +10,7 @@ echo $PATH
 echo $BUILD_DIR
 echo $BUILD_TMP_DIR
 
-export PATH=$BUILD_TMP_DIR/.heroku/python/bin:$PATH
+export PATH=/app/.heroku/python/bin:$PATH
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export LIBRARY_PATH=/app/.heroku/vendor/lib
