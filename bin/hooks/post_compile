@@ -4,9 +4,11 @@ echo "Hello from POST COMPILE"
 
 export PATH=:/usr/local/bin:$PATH
 
-unset PYTHONHOME PYTHONPATH
+unset PYTHON_HOME PYTHONPATH
 
-which python
+echo $PATH
+echo $BUILD_DIR
+echo $BUILD_TMP_DIR
 
 export PATH=$BUILD_TMP_DIR/.heroku/python/bin:$PATH
 export PYTHONUNBUFFERED=1
@@ -14,4 +16,4 @@ export LANG=en_US.UTF-8
 export LIBRARY_PATH=/app/.heroku/vendor/lib
 export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
 
-pstatic $BUILD_DIR
+python -m presstatic $BUILD_DIR
