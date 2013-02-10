@@ -62,7 +62,7 @@ function build() {
 
 source $BIN_DIR/hooks/pre_compile
 
-for buildpack in $(cat $BUILD_DIR/.buildpacks); do
+for buildpack in $(cat buildpacks); do
   build $buildpack
 done
 
