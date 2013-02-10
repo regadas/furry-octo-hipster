@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+BUILD_DIR = $1
+CACHE_DIR = $2
+
+set -e
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+unset GIT_DIR
+
+function build() {
+  buildpack=$1
+
+  dir=$(mktemp -t buildpackXXXXX)
+  rm -rf $dir
+
+  url=${buildpack%#*}
+  branch=${buildpack#*#}
+
+  if [ "$branch" == "$url" ]; then
+    branch=""
+  fi
+
+  if [ "$url" != "" ]; then
+    echo "=====> Downloading Buildpack: $url"
+    git clone $url $dir >/dev/null 2>&1
+    cd $dir
+
+    if [ "$branch" != "" ]; then
+      git checkout $branch >/dev/null 2>&1
+    fi
+
+    chmod +x $dir/bin/{detect,compile,release}
+
+    framework=$($dir/bin/detect $BUILD_DIR)
+
+    if [ $? == 0 ]; then
+      echo "=====> Detected Framework: $framework"
+      $dir/bin/compile $BUILD_DIR $CACHE_DIR
+
+      if [ $? != 0 ]; then
+        exit 1
+      fi
+
+      $dir/bin/release $BUILD_DIR > $CACHE_DIR/last_pack_release.out
+    fi
+  fi
+}
+
+for buildpack in $(cat $BUILD_DIR/.buildpacks); do
+  build $buildpack
+done
+
+
+echo "Using release configuration from last framework $framework:" | indent
+cat $BUILD_DIR/last_pack_release.out | indent
