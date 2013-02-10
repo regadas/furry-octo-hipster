@@ -12,3 +12,5 @@ export PYTHONHASHSEED=${PYTHONHASHSEED:-random}
 export PYTHONPATH=${PYTHONPATH:-$BUILD_DIR}
 
 python -m presstatic $BUILD_DIR/html
+
+echo "static compile finished"
