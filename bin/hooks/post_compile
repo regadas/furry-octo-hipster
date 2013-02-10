@@ -4,4 +4,4 @@ echo "Hello from POST COMPILE"
 
 source $BUILD_DIR/.profile.d/python.sh
 
-python -m presstatic $BUILD_DIR
+pstatic $BUILD_DIR
