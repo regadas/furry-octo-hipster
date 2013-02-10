@@ -62,7 +62,12 @@ function build() {
 
 source $BIN_DIR/hooks/pre_compile
 
-for buildpack in $(cat buildpacks); do
+BUILDPACKS="
+https://github.com/heroku/heroku-buildpack-python.git
+https://github.com/essh/heroku-buildpack-nginx.git
+"
+
+for buildpack in $BUILDPACKS; do
   build $buildpack
 done
 
