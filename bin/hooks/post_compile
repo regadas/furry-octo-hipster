@@ -2,11 +2,11 @@
 
 echo "Hello from POST COMPILE"
 
+
 export PYTHONHASHSEED=random
 export PYTHONHOME=$BUILD_DIR/.heroku/python
 export PYTHONPATH=$BUILD_DIR
 export PYTHONUNBUFFERED=true
-export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export LIBRARY_PATH=$BUILD_DIR/.heroku/vendor/lib
 export LD_LIBRARY_PATH=$BUILD_DIR/.heroku/vendor/lib
